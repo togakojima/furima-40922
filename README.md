@@ -11,9 +11,8 @@
 | lastname_kanji     | string  | null: false |
 | firstname_kana     | string  | null: false |
 | lastname_kana      | string  | null: false |
-| birth_year_id      | integer | null: false |
-| birth_month_id     | integer | null: false |
-| birth_day_id       | integer | null: false |
+| birthday           | date    | null: false |
+
 
 ### Association
 
@@ -22,17 +21,17 @@
 
 ## items テーブル
 
-| Column       | Type       | Options     |
-| ------------ | ---------- | ----------- |
-| title        | string     | null: false |
-| info         | text       | null: false |
-| category_id  | integer    | null: false |
-| status_id    | integer    | null: false |
-| fee_id       | integer    | null: false |
-| region_id    | integer    | null: false |
-| schedule_id  | integer    | null: false |
-| price        | integer    | null: false |
-| user         | references | null: false, foreign_key: true |
+| Column        | Type       | Options     |
+| ------------- | ---------- | ----------- |
+| title         | string     | null: false |
+| info          | text       | null: false |
+| category_id   | integer    | null: false |
+| status_id     | integer    | null: false |
+| fee_id        | integer    | null: false |
+| prefecture_id | integer    | null: false |
+| schedule_id   | integer    | null: false |
+| price         | integer    | null: false |
+| user          | references | null: false, foreign_key: true |
 
 ### Association
 
