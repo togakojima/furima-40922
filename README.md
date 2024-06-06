@@ -1,24 +1,64 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
+| email              | string | null: false, unique: true|
+| encrypted_password | string | null: false |
+| name_kanji         | string | null: false |
+| name_kana          | string | null: false |
+| birth              | string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :purchases
 
-* Configuration
+## items テーブル
 
-* Database creation
+| Column       | Type       | Options     |
+| ------------ | ---------- | ----------- |
+| title        | string     | null: false |
+| info         | text       | null: false |
+| category     | integer    | null: false |
+| status       | integer    | null: false |
+| shipping_fee | integer    | null: false |
+| region       | integer    | null: false |
+| schedule     | integer    | null: false |
+| price        | integer    | null: false |
+| user         | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_one :purchase
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
+## purchases テーブル
 
-* Deployment instructions
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| item        | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :user
+- has_one :item
+- has_one :address
+
+## addresses テーブル
+
+| Column        | Type       | Options     |
+| ------------- | ---------- | ----------- |
+| postcode      | integer    | null: false |
+| prefecture    | integer    | null: false |
+| city          | string     | null: false |
+| house_num     | string     | null: false |
+| building_name | string     |             |
+| tel_num       | string     | null: false |
+
+### Association
+
+- has_one :purchase
