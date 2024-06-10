@@ -14,7 +14,7 @@ RSpec.describe Item, type: :model do
 
     context '商品が出品できない場合' do
       it 'imageが空だと保存できない' do
-        @item.image = nil 
+        @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
@@ -86,27 +86,27 @@ RSpec.describe Item, type: :model do
       it 'priceが300未満だと保存されない' do
         @item.price = '200'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be an integer between 300 and 9999999")
+        expect(@item.errors.full_messages).to include('Price must be an integer between 300 and 9999999')
       end
       it 'priceが10000000以上だと保存されない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be an integer between 300 and 9999999")
+        expect(@item.errors.full_messages).to include('Price must be an integer between 300 and 9999999')
       end
       it 'priceが小数だと保存されない' do
         @item.price = '1000.555'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be an integer between 300 and 9999999")
+        expect(@item.errors.full_messages).to include('Price must be an integer between 300 and 9999999')
       end
       it 'priceに全角が含まれていると保存されない' do
         @item.price = '1000てすと'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be an integer between 300 and 9999999")
+        expect(@item.errors.full_messages).to include('Price must be an integer between 300 and 9999999')
       end
       it 'priceに数字以外が含まれていると保存されない' do
         @item.price = '1000test'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be an integer between 300 and 9999999")
+        expect(@item.errors.full_messages).to include('Price must be an integer between 300 and 9999999')
       end
     end
   end
