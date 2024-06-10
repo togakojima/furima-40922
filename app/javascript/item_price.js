@@ -1,4 +1,5 @@
-const priceInput = document.getElementById("item-price");
+function count (){
+  const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
     const inputValue = priceInput.value;
     const addTaxDom = document.getElementById("add-tax-price");
@@ -6,4 +7,6 @@ const priceInput = document.getElementById("item-price");
     const profitDom = document.getElementById("profit");
     profitDom.innerHTML = `${Math.ceil(inputValue - inputValue / 10).toLocaleString()}`;
   }); 
+};
 
+window.addEventListener('turbo:load', count);
