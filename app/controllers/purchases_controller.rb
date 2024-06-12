@@ -5,7 +5,7 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase = Purchase.create(purchase_params)
-    Address.create(address_params)
+    @address = Address.create(address_params)
     redirect_to root_path
   end
 
