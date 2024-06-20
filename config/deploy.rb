@@ -1,8 +1,8 @@
-lock "3.18.1"
+lock '3.18.1'
 
-set :application, "furima-40922"
+set :application, 'furima-40922'
 
-set :repo_url, "git@example.com:togakojima/furima-40922.git"
+set :repo_url, 'git@github.com:togakojima/furima-40922.git'
 set :branch, 'main'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
